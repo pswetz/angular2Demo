@@ -1,0 +1,15 @@
+﻿{
+  "extends": "tslint:latest",
+  "rules": {
+    "no-trailing-whitespace": false,
+    "interface-name": true,
+    "max-line-length": [ true, 140 ],
+    "member-ordering": [
+      true,
+      "public-before-private",
+      "static-before-instance",
+      "variables-before-functions"
+    ]
+  }
+
+}
