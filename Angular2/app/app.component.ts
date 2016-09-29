@@ -13,7 +13,7 @@ export class AppComponent implements OnInit, OnDestroy {
 
     private UserSub: Subscription;
 
-    public constructor(private uService: UserService) {
+    public constructor(private uService: UserService) { 
         this.title = "Application";
         this.uService.SetLoggedInUser(1);// this is setting up the 'current user prop in the service.
     }
