@@ -79,10 +79,8 @@
     <Content Include="packages.config" />
     <Content Include="bower.json" />
     <Content Include="tsconfig.json" />
-    <Content Include=".bowerrc" />
     <Content Include="typings.json" />
     <Content Include="tslint.json" />
-    <Content Include=".typingsrc" />
     <Content Include="typings\globals\core-js\typings.json" />
     <Content Include="typings\globals\jasmine\typings.json" />
     <Content Include="typings\globals\node\typings.json" />
