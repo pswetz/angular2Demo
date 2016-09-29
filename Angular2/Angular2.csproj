@@ -78,6 +78,7 @@
     <Content Include="package.json" />
     <Content Include="packages.config" />
     <Content Include="bower.json" />
+    <Content Include="PaulIsDumb.txt" />
     <Content Include="tsconfig.json" />
     <Content Include="typings.json" />
     <Content Include="tslint.json" />
