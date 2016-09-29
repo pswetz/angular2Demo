@@ -6,7 +6,7 @@ import { Subscription } from "rxjs/Rx";
         selector: "ag-app",
         templateUrl: "app.html",
         providers: []
-})
+})// test
 export class AppComponent implements OnInit, OnDestroy {
     public title: string;
     public LoggedInUser: string = "";
