@@ -7,6 +7,7 @@ import { Subscription } from "rxjs/Rx";
     selector: "ag-profile",
     templateUrl: "index.html",
     providers: []
+    
 })
 export class ProfileComponent implements OnInit, OnDestroy {
 

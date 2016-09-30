@@ -3,7 +3,8 @@
 var gulp = require("gulp");
 var plugins = {
     rm: require("gulp-rm"),
-    typings: require("gulp-typings")
+    typings: require("gulp-typings"),
+    webServer: require('gulp-webserver')
 };
 
 
@@ -25,3 +26,12 @@ gulp.task('typings:install', function () {
         .pipe(plugins.typings());
 });
 
+gulp.task('server', function() {
+    gulp.src('')
+    .pipe(plugins.webServer({
+      livereload: true,
+      directoryListing: true,
+      open: true,
+      fallback: "index.html"
+    }));
+});

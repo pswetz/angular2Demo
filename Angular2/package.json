@@ -9,7 +9,8 @@
     "gulp": "^3.9.1",
     "gulp-rm": "^1.0.1",
     "gulp-typings": "^2.0.4",
-    "typescript": "1.8.10",
+    "gulp-webserver": "^0.9.1",
+    "typescript": "2.0.3",
     "typings": "^1.4.0"
   },
   "dependencies": {
