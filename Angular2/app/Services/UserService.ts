@@ -8,10 +8,10 @@ import "rxjs/add/operator/map";
 export class UserService {
     public LoggedInUserId: number;
     private LoggedInUser = new BehaviorSubject<IUser>(new User(0,'','','',''));
-    public LoggedInUser$ = this.LoggedInUser.asObservable();
+    public LoggedInUser$ = this.LoggedInUser.asObservable().share();
 
     private CurrentUser = new BehaviorSubject<IUser>(new User(0, '', '', '', ''));
-    public CurrentUser$ = this.CurrentUser.asObservable();
+    public CurrentUser$ = this.CurrentUser.asObservable().share();
 
     private _httpService: Http;
 

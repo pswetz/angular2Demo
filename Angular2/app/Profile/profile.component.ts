@@ -11,13 +11,13 @@ import { Subscription } from "rxjs/Rx";
 export class ProfileComponent implements OnInit, OnDestroy {
 
     private User = new User(0,'1','1','1','1');
-    public constructor(private uService: UserService) {   
-
-        
-    }
-    
+    public constructor(private uService: UserService) {      
+    }    
     public saveChanges(event) {
-        debugger;
+        this.uService.Update(this.User);
+        if (this.User.id === this.uService.LoggedInUserId) {
+            this.uService.SetLoggedInUser(this.User.id);
+        }
     }
     get diagnostic() {
         return JSON.stringify(this.User);
