@@ -1,19 +1,24 @@
-﻿<div>
-    <form [formGroup]="userFormGroup" (submit)="saveChanges($event)">
-        <h3>User profile</h3>
-        <br />
-        <label>{{User.id}}</label>
-        <br />
-        <label>Username</label>
-        <input [formControl]="userFormGroup.controls['Username']" type="text" placeholder="Username" (keyup.enter)="0" (blur)="0" />
-        <br />
-        <label >Firstname</label>
-        <input [formControl]="Firstname" type="text" placeholder="First"  (keyup.enter)="0" (blur)="0" />
-        <br />
-        <label>Lastname</label>
-        <input [formControl]="Lastname" type="text" placeholder="Last"  (keyup.enter)="0" (blur)="0" />
-        <br />
-        <label [attr.for]="User.Email">Email</label>
-        <input [formControl]="Email" type="email" placeholder="Email" (keyup.enter)="0" (blur)="0" />
+﻿<div>Address | Notifications</div>
+<div class="container">
+    <h3>User profile</h3> 
+        <form #f="ngForm" name="f" (submit)="saveChanges($event)">
+            <div class="form-group">
+                <label for="Username">Username</label>
+                <input [(ngModel)]="User.Username" type="text" class="form-control" name="Username" placeholder="Username" id="Username" required>
+            </div>
+            <div class="form-group">
+                <label for="Firstname">Firstname</label>
+                <input [(ngModel)]="User.Firstname" type="text" class="form-control" name="Firstname" placeholder="Firstname" id="Firstname" required>
+            </div>
+            <div class="form-group">
+                <label for="Lastname">Lastname</label>
+                <input [(ngModel)]="User.Lastname" type="text" class="form-control" name="Lastname" placeholder="Lastname" id="Lastname" required>
+            </div>
+            <div class="form-group">
+                <label for="Email">Email</label>
+                <input [(ngModel)]="User.Email" type="email" class="form-control" name="Email" placeholder="Email" id="Email" required>
+            </div>
+            <button type="submit" class="btn btn-default" [disabled]="!f.form.valid">Submit</button>
     </form>
 </div>
+{{diagnostic}}

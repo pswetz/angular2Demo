@@ -1,7 +1,7 @@
 ﻿import { Component, OnInit,OnChanges,OnDestroy } from "@angular/core";
 import { IUser,User, UserService } from "../Services/UserService";
 import { Subscription } from "rxjs/Rx";
-import { FormBuilder,FormGroup,Validators,ReactiveFormsModule } from "@angular/forms";
+
 @Component({
     moduleId: module.id,
     selector: "ag-profile",
@@ -10,37 +10,25 @@ import { FormBuilder,FormGroup,Validators,ReactiveFormsModule } from "@angular/f
 })
 export class ProfileComponent implements OnInit, OnDestroy {
 
-    private currentUserSub: Subscription;
-    private userFormGroup: FormGroup;
-    public constructor(private uService: UserService, private formBuilder: FormBuilder) {   
+    private User = new User(0,'1','1','1','1');
+    public constructor(private uService: UserService) {   
 
-        uService.User(uService.LoggedInUserId);
-
-        uService.CurrentUser$.subscribe( (x: User) => {
-            this.userFormGroup = formBuilder.group({
-                Username: [x.Username],
-                Firstname: [x.Firstname],
-                Lastname: [x.Lastname],
-                Email: [x.Email]
-            });
-        })
-
-        uService.CurrentUser$.subscribe( function(x:User) {
-            this.userFormGroup = formBuilder.group({
-                Username: [x.Username],
-                Firstname: [x.Firstname],
-                Lastname: [x.Lastname],
-                Email: [x.Email]
-            });
-        })
+        
     }
     
     public saveChanges(event) {
         debugger;
     }
+    get diagnostic() {
+        return JSON.stringify(this.User);
+    }
     ngOnInit() {
+        this.uService.CurrentUser$.subscribe((x: IUser) => {
+            this.User = x;
+        })
+        this.uService.User(this.uService.LoggedInUserId);
+        
     }
     ngOnDestroy() {
-        this.currentUserSub.unsubscribe();
     }
 }
