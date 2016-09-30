@@ -12,6 +12,9 @@
     "experimentalDecorators": true,
     "suppressImplicitAnyIndexErrors": true
   },
+  "files": [
+    "./app/**/*.ts"
+  ],
   "exclude": [
     "bower_components",
     "node_modules",
