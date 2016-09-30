@@ -1,20 +1,17 @@
 ﻿import {Injectable } from "@angular/core";
 import { Http, Headers,Response } from "@angular/http";
 import { UserData } from "../MoqDataApi/UserData";
-import {Observable, Subject, ReplaySubject} from "rxjs/Rx";
+import { Observable, Subject, ReplaySubject, BehaviorSubject} from "rxjs/Rx";
 import "rxjs/add/operator/map";
 
 @Injectable()
 export class UserService {
     public LoggedInUserId: number;
-    private LoggedInUser = new ReplaySubject<IUser>();
+    private LoggedInUser = new BehaviorSubject<IUser>(new User(0,'','','',''));
     public LoggedInUser$ = this.LoggedInUser.asObservable();
 
-    private CurrentUser = new ReplaySubject<IUser>();
+    private CurrentUser = new BehaviorSubject<IUser>(new User(0, '', '', '', ''));
     public CurrentUser$ = this.CurrentUser.asObservable();
-
-    private UserList = new ReplaySubject<IUser[]>();
-    public UserList$ = this.UserList.asObservable();
 
     private _httpService: Http;
 
@@ -48,14 +45,16 @@ export class UserService {
             .map((x: Response) => 
                 x.json()
             )
-            .subscribe(() => {
-                this.CurrentUser.next(user);
+            .subscribe((data: any) => {   
+                //if (data.data) { data = data.data; }            
                 this.LoggedInUser.map(x => x.id === user.id).subscribe((data: any) => {
                     this.LoggedInUserId = user.id;
-                    this.LoggedInUser.next(user);
+                    //this.SetLoggedInUser(user.id);
                 });                
+                this.CurrentUser.next(user);
             });
     }
+    /*
     public Users() {
         return this._httpService.get(UserData.Url)
             .map((x: Response) => x.json())
@@ -63,7 +62,7 @@ export class UserService {
                 this.UserList.next(data);
             });
     }
-
+    */
     public remove(id: number) {
         this._httpService.delete(UserData.Url + `/${id}`)
             .map((res: Response) => res.json())

@@ -8,7 +8,7 @@ import { ProfileComponent } from "./Profile/profile.component";
 import { AccountComponent } from "./Account/account.component";
 import { UserService } from "./Services/UserService";
 import { HttpModule } from "@angular/http";
-
+import { ReactiveFormsModule } from "@angular/forms";
 import { UserData } from "./MoqDataApi/UserData";
 import { InMemoryWebApiModule } from "angular2-in-memory-web-api";
 
@@ -19,7 +19,8 @@ import { InMemoryWebApiModule } from "angular2-in-memory-web-api";
         FormsModule,
         routing,
         HttpModule,
-        InMemoryWebApiModule.forRoot(UserData)
+        ReactiveFormsModule,
+        InMemoryWebApiModule.forRoot(UserData, { delay:50 })
     ],
     declarations: [
         AppComponent, ProfileComponent,AccountComponent,NotFoundComponent

@@ -1,17 +1,19 @@
 ﻿<div>
-    <h3>User profile</h3>
-    <br />
-    <label>{{User.id}}</label>
-    <br />
-    <label [attr.for]="User.Username" >Username</label>
-    <input [(ngModel)]="User.Username" #uname name="User.Username" (keyup.enter)="onKey(uname.value,'Username')" (blur)="onKey(uname.value,'Username')" />
-    <br />
-    <label [attr.for]="User.Firstname">Firstname</label>
-    <input [(ngModel)]="User.Firstname" #fname name="User.Firstname" (keyup.enter)="onKey(fname.value,'Firstname')" (blur)="onKey(fname.value,'Firstname')" />
-    <br />
-    <label [attr.for]="User.Lastname">Lastname</label>
-    <input [(ngModel)]="User.Lastname" #lname name="User.Lastname" (keyup.enter)="onKey(lname.value,'Lastname')" (blur)="onKey(lname.value,'Lastname')" />
-    <br />
-    <label [attr.for]="User.Email">Email</label>
-    <input [(ngModel)]="User.Email" #email name="User.Email" (keyup.enter)="onKey(email.value,'Email')" (blur)="onKey(email.value,'Email')" />
+    <form [formGroup]="userFormGroup" (submit)="saveChanges($event)">
+        <h3>User profile</h3>
+        <br />
+        <label>{{User.id}}</label>
+        <br />
+        <label>Username</label>
+        <input [formControl]="userFormGroup.controls['Username']" type="text" placeholder="Username" (keyup.enter)="0" (blur)="0" />
+        <br />
+        <label >Firstname</label>
+        <input [formControl]="Firstname" type="text" placeholder="First"  (keyup.enter)="0" (blur)="0" />
+        <br />
+        <label>Lastname</label>
+        <input [formControl]="Lastname" type="text" placeholder="Last"  (keyup.enter)="0" (blur)="0" />
+        <br />
+        <label [attr.for]="User.Email">Email</label>
+        <input [formControl]="Email" type="email" placeholder="Email" (keyup.enter)="0" (blur)="0" />
+    </form>
 </div>
