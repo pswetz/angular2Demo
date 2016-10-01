@@ -40,8 +40,8 @@ gulp.task('webserver', function() {
     gulp.src('')
     .pipe(plugins.webServer({
       livereload: true,
-      directoryListing: true,
+      directoryListing: false,
       open: true,
-      fallback: "index.html"
+      fallback:"index.html"
     }));
 });
