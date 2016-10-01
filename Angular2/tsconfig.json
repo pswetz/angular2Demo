@@ -10,10 +10,19 @@
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "suppressImplicitAnyIndexErrors": true
+    "suppressImplicitAnyIndexErrors": true,
+    "outDir": "app/",
+    "pretty":true,
+    "declaration": true,
+    "inlineSources": true,
+    "listEmittedFiles": true,
+    "listFiles": true,
+    "noEmit": false,
+    "rootDir": "app",
+    "diagnostics": true
   },
   "files": [
-    "./app/**/*.ts"
+    "app/**/*.ts"
   ],
   "exclude": [
     "bower_components",
