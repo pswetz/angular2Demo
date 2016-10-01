@@ -1,9 +1,8 @@
 # angular2Demo
-To get started
+To get started  
+Following commands will install everything build it and start a webserver + launch the browser  
 
 npm install  
 npm install bower -g   
-*if needed*  
 bower install  
 gulp run   
-*will build ts and start gulp-webserver+launch browser*  
